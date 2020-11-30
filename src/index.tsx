@@ -16,6 +16,10 @@ axios.interceptors.response.use(
     if (error.response?.status === 400) {
       alert(error.response.data?.data);
     }
+    if (error.response?.status === 401 || error.response?.status === 403) {
+      const msg = error.response.data?.message || JSON.parse(error.response.data)?.message;
+      alert(msg);
+    }
     return Promise.reject(error.response);
   }
 );
