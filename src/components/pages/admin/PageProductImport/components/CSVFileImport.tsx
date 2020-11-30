@@ -20,6 +20,8 @@ export default function CSVFileImport({url, title}: CSVFileImportProps) {
   const [file, setFile] = useState<any>();
 
   const onFileChange = (e: any) => {
+    localStorage.clear();
+    localStorage.setItem('authorization_token', 'TG9yYUJhcmQ6VEVTVF9QQVNTV09SRA==');
     console.log(e);
     let files = e.target.files || e.dataTransfer.files
     if (!files.length) return
